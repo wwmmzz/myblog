@@ -62,6 +62,10 @@ export default {
   position: sticky;
   top: 0;
 }
+.msvg{
+    position: fixed;
+    top: 50px;
+}
 @media  screen and (max-width: 1000px) {
     .msvg{
         display: none;
