@@ -2,7 +2,7 @@
     <div class="svg">
         <!-- <h1>文章列表</h1> -->
         <router-link to='/article' tag='div'>
-        <img v-lazy="data.imgUrl" alt="">
+        <img v-lazy="data.imgUrl" alt="" class="img">
         <p>{{data.id}}</p>
         </router-link>
         <router-view></router-view>
@@ -18,5 +18,9 @@ export default {
 </script>
 
 <style lang="" scoped>
+.img{
+    width: 100%;
+    padding: 5px;
+}
 
 </style>

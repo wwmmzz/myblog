@@ -23,6 +23,9 @@ export default {
 <style lang="" scoped>
 /* @import 'bootstrap'; */
 .header{
+    /* position: fixed; */
+    background-color: white;
     font-size: 30px;
+    /* z-index: 10; */
 }
 </style>
