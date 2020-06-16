@@ -64,9 +64,14 @@ export default {
   top: 0;
 }
 .msvg{
-    background-color: #f4f5f5;
+    /* background-color: #f4f5f5; */
     position: fixed;
     top: 50px;
+}
+.msvg div{
+    widows: 1em;
+    font-size: 1em;
+    border-radius: 1em/1em;
 }
 .item{
     background-color: #f4f5f5;

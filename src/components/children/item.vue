@@ -19,6 +19,7 @@ export default {
 
 <style lang="" scoped>
 .img{
+    /* background-color: white; */
     width: 100%;
     padding: 5px;
 }
