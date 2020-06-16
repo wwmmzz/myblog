@@ -5,7 +5,16 @@ import App from './App'
 import router from './router'
 import Vuex from 'vuex'
 
+import $ from 'jquery'
+import 'bootstrap'
+import axios from 'axios'
+import Swiper from 'swiper'
+import '../node_modules/swiper/css/swiper.min.css'
+import '../node_modules/swiper/js/swiper'
+import lazyload from 'vue-lazyload'
+
 Vue.use(Vuex)
+Vue.use(lazyload)
 
 Vue.config.productionTip = false
 

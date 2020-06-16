@@ -1,7 +1,10 @@
 <template>
     <div class="svg">
-        <h1>文章列表</h1>
-        <router-link to='/article'>文章一</router-link>
+        <!-- <h1>文章列表</h1> -->
+        <router-link to='/article' tag='div'>
+        <img v-lazy="data.imgUrl" alt="">
+        <p>{{data.id}}</p>
+        </router-link>
         <router-view></router-view>
     </div>
     
@@ -9,6 +12,7 @@
 
 <script>
 export default {
+    props:["data"]
     
 }
 </script>
