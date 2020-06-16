@@ -58,7 +58,7 @@
 
 #### 2.JSON数据
 
-~~~json
+~~~tex
 {
     id:'id',/是否可以是symbol，或使用随机生成
     name:'',
