@@ -10,7 +10,7 @@
         <router-link to='/aboutus' tag='span'>关于本站</router-link>
         </div>
     </div>
-        <router-view></router-view>
+        <!-- <router-view></router-view> -->
         <!-- router-view的位置和home会不会覆盖header有关 -->
 
     </div>

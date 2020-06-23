@@ -39,12 +39,12 @@ export default {
 <style lang="" scoped>
 /* @import'Swiper'; */
 .ad {
-    text-align: center;
+  text-align: center;
   position: sticky;
   top: 0;
 }
 .swiper-container {
-  background-color:snow;
+  background-color: snow;
   width: 50%;
   line-height: 300px;
 }

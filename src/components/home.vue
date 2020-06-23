@@ -1,11 +1,11 @@
 <template>
   <div class="row home">
     <!-- <h1>首页</h1> -->
-    <div class="col-md-2 ">
+    <div class="col-md-2">
       <msvg class="msvg"></msvg>
     </div>
     <div class="col-xs-6 col-md-5">
-      <item v-for="item in list" :key="item.id" :data="item" class="item"></item>
+      <item v-for="item in list" :key="item.id" :info="item"></item>
     </div>
     <div class="col-xs-5 col-md-5 ad">
       <ad></ad>
@@ -20,9 +20,9 @@ import item from "./children/item";
 import ad from "./children/ad";
 
 export default {
-  data() {
-    return {
-      list: []
+  computed:{
+    list(){
+      return this.$store.state.list
     }
   },
   components: {
@@ -31,23 +31,21 @@ export default {
     ad
   },
   mounted() {
-      let arr = [];
-    function createOneHundredThousandData() {
-      for (let i = 0; i < 50; i++) {
-        arr.push({
-          imgUrl: require ("../assets/01.jpg"),
-          id: i
-        });
-      }
-    //   console.log(this.list)
-      return arr;
-    }
-    createOneHundredThousandData();
-    this.list = arr;
+    // let arr = [];
+    // function createOneHundredThousandData() {
+    //   for (let i = 0; i < 50; i++) {
+    //     arr.push({
+    //       imgUrl: require("../assets/01.jpg"),
+    //       id: i
+    //     });
+    //   }
+    //   //   console.log(this.list)
+    //   return arr;
+    // }
+    // createOneHundredThousandData();
+    // this.list = arr;
 
-    console.log(this.list)
-      
-
+    // console.log(this.list);
   }
 };
 </script>
@@ -55,7 +53,7 @@ export default {
 <style lang="" scoped>
 /* @import 'bootstrap'; */
 .home {
-    /* background-color: #f4f5f5; 添加此样式会覆盖header，好像home在header的上面*/
+  background-color: #f4f5f5;
   position: relative;
   /* height: 1000px; */
 }
@@ -63,28 +61,25 @@ export default {
   position: sticky;
   top: 0;
 }
-.msvg{
-    /* background-color: #f4f5f5; */
-    position: fixed;
-    top: 50px;
+.msvg {
+  /* background-color: #f4f5f5; */
+  position: fixed;
+  top: 200px;
 }
-.msvg div{
-    widows: 1em;
-    font-size: 1em;
-    border-radius: 1em/1em;
+.msvg div {
+  widows: 1em;
+  font-size: 1em;
+  /* border-radius: 1em/1em; */
 }
-.item{
-    background-color: #f4f5f5;
-    border-radius: 8px/8px;
-    /* border-bottom: khaki; */
-    margin: 5px 0;
+.item {
+  background-color: white;
+  /* border-radius: 8px/8px; */
+  /* border-bottom: khaki; */
+  margin: 2px 0;
 }
-@media  screen and (max-width: 1000px) {
-    .msvg{
-        display: none;
-    }
-
-
-    
+@media screen and (max-width: 1000px) {
+  .msvg {
+    display: none;
+  }
 }
 </style>

@@ -21,7 +21,7 @@ export default new Router({
       component: login
     },
     {
-      path: '/article',
+      path: '/article/:id',
       component: article
     },
     {
