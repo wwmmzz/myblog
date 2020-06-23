@@ -3,8 +3,9 @@
         <!-- <h1>文章列表</h1> -->
         <router-link :to='"/article/" + info.id' tag='div'>
         <!-- <img v-lazy="data.imgUrl" alt="" class="img"> -->
+        <p>{{info.tit}}</p>
         <p>{{info.article}}</p>
-        <p>{{info.tit}} <span @click.prevent="add">like</span> </p>
+        <span @click.prevent="add">like</span><span>{{info.likecount}}</span>
         </router-link>
         <router-view></router-view>
     </div>
@@ -21,7 +22,14 @@ export default {
     },
     methods:{
         add(){
+            if(!this.$store.state.loginstate){
+                this.$router.replace({
+                    path : "/login"
+                })
+            }else{
             this.$store.commit("addlike", this.info.id)
+
+            }
             // console.log(this.$route)
         }
     }

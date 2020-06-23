@@ -1,6 +1,7 @@
 <template>
   <div class="row home">
     <!-- <h1>首页</h1> -->
+    <button @click="handhot">最热</button><button @click="handnew">最新</button>
     <div class="col-md-2">
       <msvg class="msvg"></msvg>
     </div>
@@ -46,6 +47,15 @@ export default {
     // this.list = arr;
 
     // console.log(this.list);
+
+  },
+  methods : {
+    handhot(){
+      this.list.sort((a, b)=>b.likecount - a.likecount)
+    },
+    handnew(){
+      this.list.sort((a, b)=>a.date - b.date)
+    }
   }
 };
 </script>

@@ -2,8 +2,6 @@
     <div class="svg">
         <!-- <h1>svg</h1> -->
         <div>s</div>
-        <span>{{count}}</span>
-        <button @click = "add">add</button>
         <div>v</div>
         <div>g</div>
     </div>
@@ -12,21 +10,21 @@
 
 <script>
 export default {
-    mounted(){
-        console.log(this.$store)
-        // this.count = this.$store.state.count
-    },
-    computed : {
-        count(){
-            return this.$store.state.count
-        }
-    },
-    methods :{
-        add(){
-            this.$store.commit("addlike")
-            console.log(this.$store.state.count)
-        }
-    }
+    // mounted(){
+    //     console.log(this.$store)
+    //     // this.count = this.$store.state.count
+    // },
+    // computed : {
+    //     count(){
+    //         return this.$store.state.count
+    //     }
+    // },
+    // methods :{
+    //     add(){
+    //         this.$store.commit("addlike")
+    //         console.log(this.$store.state.count)
+    //     }
+    // }
 }
 </script>
 
