@@ -45,7 +45,7 @@ export default {
 }
 .swiper-container {
   background-color: snow;
-  width: 50%;
-  line-height: 300px;
+  width: 100%;
+  line-height: 100px;
 }
 </style>

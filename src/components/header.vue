@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div>
     <div class="row header">
         <div class="col-xs-6 col-md-6">
         <router-link to='/home' tag='div'>首页</router-link>
@@ -47,6 +47,8 @@ export default {
 <style lang="" scoped>
 /* @import 'bootstrap'; */
 .header{
+    margin: 0 15px;
+    /* width: 100%; */
     /* position: fixed; */
     background-color: white;
     font-size: 30px;

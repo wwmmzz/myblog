@@ -1,18 +1,27 @@
 <template>
   <div id="user">
-    <h1>用户</h1>
+      <div>
+
+      
     <span>标题</span>
     <input type="text" v-model="arti.tit"/>
-    <textarea name id cols="30" rows="10" v-model="arti.msg"></textarea>
+    <textarea name id cols="30" rows="10" v-model="arti.msg" class="m-input"></textarea>
+    <div class="m-input-btn">
     <button @click="fabu">发布</button>
+    </div>
     <div v-html="note"></div>
-    <p>我喜欢的</p>
-    <p v-for="item in list" :key="item.id">{{item.tit}}</p>
+    <!-- <p>我喜欢的</p> -->
+    <div class="article">
+    <!-- <p v-for="item in list" :key="item.id">{{item.tit}}</p> -->
+      <item v-for="item in list" :key="item.id" :info="item"></item>
+    </div>
+      </div>
   </div>
 </template>
 
 <script>
 import marked from "marked";
+import item  from './children/item'
 
 export default {
   data() {
@@ -47,9 +56,28 @@ export default {
       fabu(){
           this.$store.commit("fabu", this.arti)
       }
+  },
+  components : {
+      item
   }
 };
 </script>
 
-<style lang="" scoped>
+<style scoped>
+#user{
+    background-color: #f4f5f5;
+}
+.m-input{
+    margin: 5px 0;
+    resize: none;
+    width: 100%;
+    height: 68px;
+}
+.article{
+    margin-top: 20px;
+}
+.m-input-btn{
+    margin: 0 10px;
+    direction: rtl;
+}
 </style>

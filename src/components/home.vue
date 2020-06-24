@@ -1,16 +1,17 @@
 <template>
-  <div class="row home">
+  <div class="home">
     <!-- <h1>首页</h1> -->
+    <ad></ad>
     <button @click="handhot">最热</button><button @click="handnew">最新</button>
-    <div class="col-md-2">
+    <!-- <div class="col-md-2">
       <msvg class="msvg"></msvg>
-    </div>
-    <div class="col-xs-6 col-md-5">
+    </div> -->
+    <div>
       <item v-for="item in list" :key="item.id" :info="item"></item>
     </div>
-    <div class="col-xs-5 col-md-5 ad">
-      <ad></ad>
-    </div>
+    <!-- <div class="col-xs-3 col-md-5 ad">
+      
+    </div> -->
     <router-view></router-view>
   </div>
 </template>
