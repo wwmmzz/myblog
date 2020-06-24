@@ -3,6 +3,7 @@
         <div><span>用户名:</span> <input type="text" v-model="user.name"></div>
         <div><span>密码:</span> <input type="text" v-model="user.password"></div>
         <button @click="login">登录</button>
+        <button @click="regist">注册</button>
     </div>
 </template>
 
@@ -26,6 +27,9 @@ export default {
                     }
                 )
             }
+        },
+        regist(){
+            this.$store.commit("regist", this.user)
         }
     }
 }

@@ -21,34 +21,54 @@ import item from "./children/item";
 import ad from "./children/ad";
 
 export default {
-  computed:{
-    list(){
-      return this.$store.state.list
+  data(){
+    return{
+      list : [],
+      state : this.$store.state
     }
   },
+  created(){
+    // this.$store.state.list = localStorage.getItem("msg")
+    this.list = this.$store.state.list
+    // console.log(this.list[0])
+    
+  },
+  watch:{
+    state(){
+      console.log('changed')
+      deep : true
+    }
+  },
+  // computed:{
+  //   list(){
+  //     return this.$store.state.list
+  //     console.log("changed")
+  //   }
+  // },
   components: {
     msvg,
     item,
     ad
   },
-  mounted() {
-    // let arr = [];
-    // function createOneHundredThousandData() {
-    //   for (let i = 0; i < 50; i++) {
-    //     arr.push({
-    //       imgUrl: require("../assets/01.jpg"),
-    //       id: i
-    //     });
-    //   }
-    //   //   console.log(this.list)
-    //   return arr;
-    // }
-    // createOneHundredThousandData();
-    // this.list = arr;
+  // mounted() {
+  //   // let arr = [];
+  //   // function createOneHundredThousandData() {
+  //   //   for (let i = 0; i < 50; i++) {
+  //   //     arr.push({
+  //   //       imgUrl: require("../assets/01.jpg"),
+  //   //       id: i
+  //   //     });
+  //   //   }
+  //   //   //   console.log(this.list)
+  //   //   return arr;
+  //   // }
+  //   // createOneHundredThousandData();
+  //   // this.list = arr;
 
-    // console.log(this.list);
+  //   // console.log(this.list);
+  //   console.log(localStorage.getItem("msg"))
 
-  },
+  // },
   methods : {
     handhot(){
       this.list.sort((a, b)=>b.likecount - a.likecount)
