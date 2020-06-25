@@ -125,7 +125,7 @@ const store = new Vuex.Store({
         };
         state.user.push(user);
         console.log("注册成功")
-      }else{
+      } else {
         console.log("用户名已存在")
       }
     },
@@ -137,6 +137,7 @@ const store = new Vuex.Store({
         id: last.length,
         author: state.loginstate,
         likecount: 0,
+        comments: [],
         date: time,
         tit: arti.tit,
         article: arti.msg

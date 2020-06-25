@@ -2,7 +2,8 @@
   <div class="home">
     <!-- <h1>首页</h1> -->
     <ad></ad>
-    <button @click="handhot">最热</button><button @click="handnew">最新</button>
+    <span @click="handhot" :class="{on: sortlist == 'hot'}">最热</span>
+    <span @click="handnew" :class="{on: sortlist == 'new'}">最新</span>
     <!-- <div class="col-md-2">
       <msvg class="msvg"></msvg>
     </div> -->
@@ -25,7 +26,8 @@ export default {
   data(){
     return{
       list : [],
-      state : this.$store.state
+      state : this.$store.state,
+      sort : 'hot'
     }
   },
   created(){
@@ -70,12 +72,19 @@ export default {
   //   console.log(localStorage.getItem("msg"))
 
   // },
+  computed:{
+    sortlist(){
+      return this.sort
+    }
+  },
   methods : {
     handhot(){
       this.list.sort((a, b)=>b.likecount - a.likecount)
+      this.sort = "hot"
     },
     handnew(){
       this.list.sort((a, b)=>a.date - b.date)
+      this.sort = "new"
     }
   }
 };
@@ -84,6 +93,7 @@ export default {
 <style lang="" scoped>
 /* @import 'bootstrap'; */
 .home {
+  padding: 0 15px;
   background-color: #f4f5f5;
   position: relative;
   /* height: 1000px; */
@@ -107,6 +117,11 @@ export default {
   /* border-radius: 8px/8px; */
   /* border-bottom: khaki; */
   margin: 2px 0;
+}
+.on{
+  border-bottom: 2px;
+    border-bottom-color: red;
+    border-bottom-style: solid;
 }
 @media screen and (max-width: 1000px) {
   .msvg {

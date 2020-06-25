@@ -7,8 +7,6 @@ import home from '@/components/home'
 import login from '@/components/login'
 import article from '@/components/article'
 import user from '@/components/user'
-import aboutus from '@/components/aboutus'
-import header from '@/components/header'
 
 export default new Router({
   routes:[
@@ -27,10 +25,6 @@ export default new Router({
     {
       path: '/user',
       component: user
-    },
-    {
-      path: '/aboutus',
-      component: aboutus
     },
     {
       path: '*',
