@@ -6,15 +6,24 @@
 </template>
 
 <script>
-import myHeader from './components/header'
+import myHeader from "./components/header";
 
 export default {
-  components:{
+  components: {
     myHeader
   }
-}
+};
 </script>
 
 <style>
 @import 'bootstrap';
+
+/* :root {
+	--font: "EB Garamond", serif;
+	--font-title: "Playfair Display", serif;
+	--font-sans-serif: "Manrope", sans-serif;
+	--black: #1c1f33;
+	--gray: #eee;
+	--gray-1: #ededed;
+} */
 </style>

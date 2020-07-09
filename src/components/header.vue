@@ -2,12 +2,18 @@
   <div>
     <div class="row header">
       <div class="col-xs-6 col-md-6">
-        <router-link to="/home" tag="div"><span :class="{select: path == '/home'}">首页</span></router-link>
+        <router-link to="/home" tag="div">
+        <!-- <span class="glyphicon glyphicon-home"></span> -->
+          <span :class="{select: path == '/home'}" class="glyphicon glyphicon-home"></span>
+        </router-link>
       </div>
       <div class="col-xs-6 col-md-6 right">
-        <router-link to="/user" tag="span" v-if="state"><span :class="{select: path == '/user'}">我的</span>
+        <router-link to="/user" tag="span" v-if="state">
+        <!-- <span class="glyphicon glyphicon-user"></span> -->
+          <span :class="{select: path == '/user'}" class="glyphicon glyphicon-user"></span>
         </router-link>
-        <router-link to="/login" tag="span" v-if="!state"><span :class="{select: path == '/login'}">登录</span>
+        <router-link to="/login" tag="span" v-if="!state">
+          <span :class="{select: path == '/login'}" class="glyphicon glyphicon-log-in"></span>
         </router-link>
       </div>
     </div>
@@ -18,11 +24,11 @@
 
 <script>
 export default {
-//   data(){
-//       return{
-//           path : this.$route.path
-//       }
-//   },
+  //   data(){
+  //       return{
+  //           path : this.$route.path
+  //       }
+  //   },
   methods: {
     islogin() {
       if (this.$store.state.loginstate) {
@@ -35,24 +41,25 @@ export default {
   computed: {
     state() {
       return this.$store.state.loginstate;
-    //   console.log(this.state);
+      //   console.log(this.state);
     },
-    path(){
-          return this.$route.path
-        //   deep :true
-      }
+    path() {
+      return this.$route.path;
+      //   deep :true
+    }
   },
   mounted() {
     console.log(this.$store.state.loginstate);
-    console.log(this.$route)
+    console.log(this.$route);
   }
 };
 </script>
 
 <style lang="" scoped>
-/* @import 'bootstrap'; */
+@import 'bootstrap';
+
 .header {
-  margin: 0 15px;
+  margin: 5px 15px;
   /* width: 100%; */
   /* position: fixed; */
   background-color: white;
@@ -62,9 +69,10 @@ export default {
 .right {
   text-align: right;
 }
-.select{
-    border-bottom: 2px;
-    border-bottom-color: red;
-    border-bottom-style: solid;
+.select {
+  /* border-bottom: 2px;
+  border-bottom-color: red;
+  border-bottom-style: solid; */
+  color: #4caf50;
 }
 </style>

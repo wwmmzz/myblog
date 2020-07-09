@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import marked from "marked";
 import item from "./children/item";
 
 export default {
@@ -38,7 +37,7 @@ export default {
       return this.$store.state.likelist;
     },
     note() {
-      return marked(this.arti.msg);
+      return this.arti.msg;
     }
   },
   watch: {

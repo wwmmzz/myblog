@@ -8,15 +8,19 @@
     </router-link>
     <div class="f-center box-center">
       <div class="box-center">
-        <span>转发</span>
+        <span class="glyphicon glyphicon-share-alt"></span>
       </div>
       <div class="box-center">
-        <span>评论</span>
+        <span class="glyphicon glyphicon-comment" ></span>
       </div>
       <div class="box-center">
-        <span @click.prevent="add">点赞</span>
-        <span>{{info.likecount}}</span>
+        <span @click.prevent="add" class="glyphicon glyphicon-heart"  aria-hidden="true"></span>
+        <span class="likecount">{{info.likecount}}</span>
       </div>
+      <!-- <div>
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">123456</span>
+  Enter a valid email address
+</div> -->
     </div>
 
     <router-view></router-view>
@@ -78,5 +82,24 @@ p {
   flex: 1;
   justify-content: center;
   align-items: center;
+}
+.glyphicon{
+    position:static;
+}
+.likecount{
+    margin-left: 3px;
+}
+
+@media screen and (min-width : 900px){
+    .item{
+        float: left;
+        width: 30%;
+        margin: 1.5%;
+    }
+    .article{
+        height: 4em;
+        overflow: hidden;
+
+    }    
 }
 </style>

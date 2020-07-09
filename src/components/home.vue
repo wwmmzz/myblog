@@ -1,18 +1,22 @@
 <template>
   <div class="home">
     <!-- <h1>首页</h1> -->
-    <ad></ad>
-    <span @click="handhot" :class="{on: sortlist == 'hot'}">最热</span>
-    <span @click="handnew" :class="{on: sortlist == 'new'}">最新</span>
+    <ad class="ad"></ad>
+
     <!-- <div class="col-md-2">
       <msvg class="msvg"></msvg>
-    </div> -->
-    <div>
+    </div>-->
+    <div class="article">
+      <div>
+        <span @click="handhot" :class="{on: sortlist == 'hot'}">最热</span>
+        <span @click="handnew" :class="{on: sortlist == 'new'}">最新</span>
+      </div>
+
       <item v-for="item in list" :key="item.id" :info="item"></item>
     </div>
     <!-- <div class="col-xs-3 col-md-5 ad">
       
-    </div> -->
+    </div>-->
     <router-view></router-view>
   </div>
 </template>
@@ -23,23 +27,22 @@ import item from "./children/item";
 import ad from "./children/ad";
 
 export default {
-  data(){
-    return{
-      list : [],
-      state : this.$store.state,
-      sort : 'hot'
-    }
+  data() {
+    return {
+      list: [],
+      state: this.$store.state,
+      sort: ""
+    };
   },
-  created(){
+  created() {
     // this.$store.state.list = localStorage.getItem("msg")
-    this.list = this.$store.state.list
+    this.list = this.$store.state.list;
     // console.log(this.list[0])
-    
   },
-  watch:{
-    state(){
-      console.log('changed')
-      deep : true
+  watch: {
+    state() {
+      console.log("changed");
+      deep: true;
     }
   },
   // computed:{
@@ -72,19 +75,19 @@ export default {
   //   console.log(localStorage.getItem("msg"))
 
   // },
-  computed:{
-    sortlist(){
-      return this.sort
+  computed: {
+    sortlist() {
+      return this.sort;
     }
   },
-  methods : {
-    handhot(){
-      this.list.sort((a, b)=>b.likecount - a.likecount)
-      this.sort = "hot"
+  methods: {
+    handhot() {
+      this.list.sort((a, b) => b.likecount - a.likecount);
+      this.sort = "hot";
     },
-    handnew(){
-      this.list.sort((a, b)=>a.date - b.date)
-      this.sort = "new"
+    handnew() {
+      this.list.sort((a, b) => a.date - b.date);
+      this.sort = "new";
     }
   }
 };
@@ -118,14 +121,31 @@ export default {
   /* border-bottom: khaki; */
   margin: 2px 0;
 }
-.on{
+.on {
   border-bottom: 2px;
-    border-bottom-color: red;
-    border-bottom-style: solid;
+  border-bottom-color: red;
+  border-bottom-style: solid;
 }
 @media screen and (max-width: 1000px) {
   .msvg {
     display: none;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .home {
+    display: flex;
+    direction: rtl;
+  }
+  .ad {
+    flex-grow: 1;
+    /* float: right; */
+    /* width: 30%; */
+  }
+  .article {
+    direction: ltr;
+    flex-grow: 3;
+    /* width: 60%; */
   }
 }
 </style>

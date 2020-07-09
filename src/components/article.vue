@@ -22,9 +22,9 @@
       </div>
     </div>
 
-    <div class="comment-input">
-      <input type="text" v-model="pinglun.comm" />
-      <button @click="comment">评论</button>
+    <div class="comment-i">
+      <input type="text" v-model="pinglun.comm" class="comment-input"/>
+      <span class="comment-btn" @click="comment">评论</span>
     </div>
   </div>
 </template>
@@ -59,9 +59,11 @@ export default {
       let id = this.$store.state.loginstate;
       if (id) {
         let user = this.$store.state.user.find(item => item.id === id);
+        let acticle = this.$store.state.list.find(item=>item.id == this.id)
 
         this.pinglun.user = user.name;
         this.comments.push(this.pinglun);
+        acticle.comments.push(this.comments)
       } else {
         this.$router.replace({
           path: "/login"
@@ -97,9 +99,25 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.comment-input {
+.comment-i {
+    display: flex;
+    width: 10px;
   position: fixed;
   bottom: 0;
+  left: 0;
+  padding: 0 10px;
+}
+.comment-input{
+        padding: 0 10px;
+    left: 0;
+    display: flex;
+    width: 100%;
+}
+.comment-btn{
+    width: 4em;
+    text-align: center;
+    line-height: 30px;
+    /* color: green; */
 }
 .m-comm {
   padding: 5px 0;

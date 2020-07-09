@@ -4,19 +4,15 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vuex from 'vuex'
-
-import $ from 'jquery'
-import 'bootstrap'
-import axios from 'axios'
 import Swiper from 'swiper'
 import '../node_modules/swiper/css/swiper.min.css'
 import '../node_modules/swiper/js/swiper'
-import lazyload from 'vue-lazyload'
-import VueLazyload from 'vue-lazyload'
-import marked from 'marked'
+import $ from "jquery"
+import "bootstrap"
+// import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/dist/js/bootstrap.min'
 
 Vue.use(Vuex)
-Vue.use(lazyload)
 
 Vue.config.productionTip = false
 
@@ -68,7 +64,7 @@ const store = new Vuex.Store({
         likelist: []
       }
     ],
-    loginstate: null
+    loginstate: null,
   },
   mutations: {
     addlike(state, id) {
