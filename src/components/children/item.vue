@@ -66,7 +66,7 @@ p {
   /* padding: 0 10px; */
   background-color: white;
   /* border-radius: 10px; */
-  margin: 10px 0;
+  margin: .13rem /* 10/75 */ 0;
 }
 .f-center {
   border-top-width: 0.5px;

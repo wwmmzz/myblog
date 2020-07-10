@@ -30,7 +30,6 @@ export default {
   data() {
     return {
       list: [],
-      state: this.$store.state,
       sort: ""
     };
   },
@@ -38,12 +37,6 @@ export default {
     // this.$store.state.list = localStorage.getItem("msg")
     this.list = this.$store.state.list;
     // console.log(this.list[0])
-  },
-  watch: {
-    state() {
-      console.log("changed");
-      deep: true;
-    }
   },
   // computed:{
   //   list(){
@@ -86,7 +79,7 @@ export default {
       this.sort = "hot";
     },
     handnew() {
-      this.list.sort((a, b) => a.date - b.date);
+      this.list.sort((a, b) => b.date - a.date);
       this.sort = "new";
     }
   }

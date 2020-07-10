@@ -18,6 +18,7 @@ export default {
 <style>
 @import 'bootstrap';
 
+
 /* :root {
 	--font: "EB Garamond", serif;
 	--font-title: "Playfair Display", serif;

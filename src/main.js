@@ -9,8 +9,9 @@ import '../node_modules/swiper/css/swiper.min.css'
 import '../node_modules/swiper/js/swiper'
 import $ from "jquery"
 import "bootstrap"
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// import 'bootstrap/dist/js/bootstrap.min'
+
+import "./assets/js/flexible"
+import "./assets/css/reset.css"
 
 Vue.use(Vuex)
 
@@ -19,33 +20,49 @@ Vue.config.productionTip = false
 const store = new Vuex.Store({
   state: {
     count: 0,
-    list: JSON.parse(localStorage.getItem("msg")) || [],
-    // {
-    //   id: 0,
-    //   author: 0,
-    //   likecount: 0,
-    //   date: '0',
-    //   tit: "标题0",
-    //   article: "内容0"
-    // },
-    // {
-    //   id: 1,
-    //   author: 1,
-    //   likecount: 0,
-    //   date: '1',
-    //   tit: "标题1",
-    //   article: "内容1"
-    // },
-    // {
-    //   id: 2,
-    //   author: 0,
-    //   likecount: 0,
-    //   date: '2',
-    //   tit: "标题2",
-    //   article: "内容2"
-    // },
+    list: JSON.parse(localStorage.getItem("msg")) || [
+      {
+        article: "Character cannot be developed in ease and quiet. Only through\
+                experience of trial and suffering can the soul be strengthened, ambition\
+                inspired, and success achieved.",
+        author: 1,
+        date: 1593027507441,
+        id: 0,
+        likecount: 3,
+        tit: "英语美文",
+        comments:[]
+      },
+      {
+        article: "如果我爱你，而你也正巧爱我。你头发乱了时候，我会笑笑地替\
+        你拨一拨，然后，手还留恋地在你发上多待几秒。但是，如果我爱你，而你不\
+        巧地不爱我。你头发乱了，我只会轻轻地告诉你，你头发乱了喔。这大概是最\
+        纯粹的爱情观，如若相爱，便携手到老；如若错过，便护他安好",
+        author: 1,
+        date: 1593027750315,
+        id: 1,
+        likecount: 1,
+        tit: "村上春树",
+        comments:[]
+
+      },
+      {
+        article: "生命中有很多东西，能忘掉的叫过去，忘不掉的叫记忆。一个人的寂\
+        寞，有时候，很难隐藏得太久，时间太久了，人就会变得沉默，那时候，有些往日\
+        的情怀，就找不回来了。或许，当一段不知疲倦的旅途结束，只有站在终点的人，才\
+        会感觉到累。其实我一直都明白，能一直和一人做伴，实属不易",
+      author: 1,
+      date: 1593027774987,
+      id: 2,
+      likecount: 2,
+      tit: "海子",
+      comments:[]
+
+      }
+      
+    ],
 
     likelist: [],
+
     user: [
       {
         id: 1,
@@ -64,7 +81,7 @@ const store = new Vuex.Store({
         likelist: []
       }
     ],
-    loginstate: null,
+    loginstate: 1,
   },
   mutations: {
     addlike(state, id) {
@@ -104,7 +121,8 @@ const store = new Vuex.Store({
         myuser.loginstate = true
         state.loginstate = myuser.id
         localStorage.setItem("user", JSON.stringify(myuser));
-
+      }else{
+        alert("用户名或密码错误")
       }
     },
     regist(state, newUser) {
@@ -140,7 +158,17 @@ const store = new Vuex.Store({
       };
       last.push(msg);
       console.log('saved', new Date())
+    },
+    comment(state, comm){
+      let newcomm = {}
+      let article = state.list.find(item=>item.id == comm.id)
+      console.log(article)
+      newcomm = JSON.parse(JSON.stringify(comm))
+      article.comments.push(newcomm.pinglun)
     }
+  },
+  actions:{
+
   }
 })
 /* eslint-disable no-new */

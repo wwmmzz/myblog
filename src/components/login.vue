@@ -2,25 +2,24 @@
   <div id="login">
     <div class="login-page">
       <div class="form">
-        <form class="register-form" v-if="!account">
+        <div class="register-form" v-if="!account">
           <input type="text" placeholder="name" v-model="user.name" />
           <input type="password" placeholder="password" v-model="user.password" />
-          <input type="text" placeholder="email address" />
           <button @click="regist">注册</button>
 
           <p class="message">
-            Already registered?
-            <a href="#" @click="acco">Sign In</a>
+            已有账号？
+            <a href="#" @click="acco">登录</a>
           </p>
-        </form>
+        </div>
         <form class="login-form" v-if="account">
           <input type="text" placeholder="username" v-model="user.name"  />
           <input type="password" placeholder="password" v-model="user.password" />
           <button @click="login">登录</button>
 
           <p class="message">
-            Not registered?
-            <a href="#" @click="acco">Create an account</a>
+            没有账号?
+            <a href="#" @click="acco">注册</a>
           </p>
         </form>
       </div>
@@ -60,7 +59,7 @@ export default {
 </script>
 
 <style lang="" scoped>
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+/* @import url(https://fonts.googleapis.com/css?family=Roboto:300); */
 
 .login-page {
   width: 360px;
@@ -110,50 +109,6 @@ export default {
 /* .form .register-form {
   display: none;
 } */
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
-}
-.container:before,
-.container:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.container .info {
-  margin: 50px auto;
-  text-align: center;
-}
-.container .info h1 {
-  margin: 0 0 15px;
-  padding: 0;
-  font-size: 36px;
-  font-weight: 300;
-  color: #1a1a1a;
-}
-.container .info span {
-  color: #4d4d4d;
-  font-size: 12px;
-}
-.container .info span a {
-  color: #000000;
-  text-decoration: none;
-}
-.container .info span .fa {
-  color: #ef3b3a;
-}
-body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8dc26f);
-  background: -moz-linear-gradient(right, #76b852, #8dc26f);
-  background: -o-linear-gradient(right, #76b852, #8dc26f);
-  background: linear-gradient(to left, #76b852, #8dc26f);
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 @media screen and (min-width: 900px) {
   .form {

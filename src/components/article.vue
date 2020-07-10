@@ -16,15 +16,15 @@
     </div>
     <h3>评论区</h3>
     <div class="comm-box">
-      <div v-for="item in comments" :key="item.name" class="m-comm">
+      <div v-for="item in list.comments" :key="item.date" class="m-comm">
         <span class="m-comm-name">{{item.user}}:</span>
         <span class="m-comm-article">{{item.comm}}</span>
       </div>
     </div>
 
     <div class="comment-i">
-      <input type="text" v-model="pinglun.comm" class="comment-input"/>
-      <span class="comment-btn" @click="comment">评论</span>
+      <input type="text" v-model="comm.pinglun.comm" class="comment-input"/>
+      <button class="btn btn-info" @click="comment" :class="{fobiden : !comm.pinglun.comm}">评论</button>
     </div>
   </div>
 </template>
@@ -35,11 +35,16 @@ export default {
     return {
       id: parseInt(this.$route.params.id),
       list: {},
-      comments: [],
-      pinglun: {
+      comm: {
+        id:parseInt(this.$route.params.id),
+        pinglun: {
         user: "",
-        comm: ""
+        comm: "",
+        date: 0
       }
+      },
+
+      
     };
   },
   mounted() {
@@ -57,13 +62,14 @@ export default {
     },
     comment() {
       let id = this.$store.state.loginstate;
+      let time = Date.now()
       if (id) {
         let user = this.$store.state.user.find(item => item.id === id);
-        let acticle = this.$store.state.list.find(item=>item.id == this.id)
 
-        this.pinglun.user = user.name;
-        this.comments.push(this.pinglun);
-        acticle.comments.push(this.comments)
+        this.comm.pinglun.user = user.name;
+        this.comm.pinglun.date = time
+        this.$store.commit("comment", this.comm)
+        this.comm.pinglun.comm = ""
       } else {
         this.$router.replace({
           path: "/login"
@@ -71,11 +77,11 @@ export default {
       }
     }
   },
-  watch: {
-    comments(val) {
-      this.comments = val;
-    }
-  }
+  // computed: {
+  //   comments() {
+  //     return this.list.comments
+  //   }
+  // }
 };
 </script>
 
@@ -100,18 +106,20 @@ export default {
   align-items: center;
 }
 .comment-i {
-    display: flex;
-    width: 10px;
+  display: flex;
+  width: 100vw;
   position: fixed;
   bottom: 0;
   left: 0;
   padding: 0 10px;
+  border-top: #c2c2c2 solid 1px;
 }
 .comment-input{
-        padding: 0 10px;
-    left: 0;
-    display: flex;
-    width: 100%;
+    padding: 0 10px;
+    flex: 1;
+    border: #c2c2c2 solid 1px;
+    border-radius: 8px;
+    margin: 0 10px;
 }
 .comment-btn{
     width: 4em;
@@ -133,5 +141,9 @@ export default {
 }
 .comm-box {
   margin-top: 20px;
+}
+.fobiden{
+  pointer-events: none;
+  opacity: 0.5;
 }
 </style>
