@@ -59,6 +59,7 @@ export default {
 p {
   margin: 0;
   padding: 0;
+  word-break: break-all;
 }
 .item {
   /* background-image: url("../../assets/001.jpg"); */

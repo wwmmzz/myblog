@@ -3,10 +3,14 @@
     <div>
       <div class="title-box">
       <input type="text" class="title" placeholder="标题" v-model="arti.tit" />
+      <span>{{arti.tit.length}}</span>&#47;<span>10</span>
       </div>
+      <div class="article-box">
       <textarea name id cols="30" rows="10" v-model="arti.msg" class="m-input"></textarea>
+      <div class="article-count"><span>{{arti.msg.length}}</span>&#47;<span>140</span> </div>
+      </div>
       <div class="m-input-btn">
-        <button @click="fabu" class="btn btn-success">发布</button>
+        <button @click="fabu" class="btn btn-success" :class="{fobiden : !(arti.msg&&arti.tit)}">发布</button>
         <button @click="logout" class="btn btn-danger">退出</button>
 
         </div>
@@ -30,7 +34,7 @@ export default {
         msg: "",
         tit: ""
       },
-
+      // a:this.arti.msg,
       msgs: this.$store.state.list
     };
   },
@@ -39,13 +43,28 @@ export default {
       return this.$store.state.likelist;
     },
     // note() {
-    //   return this.arti.msg;
+    //   // let article = ''
+    //   // let newmsg = this.arti.msg
+    //   // if(newmsg.length > 140){
+    //   //    = newmsg.slice(0, 140)
+    //   //   return this.arti.msg;
+
+    //   // }
+    //   return this.arti.msg.slice(0, 140)
     // }
   },
   watch: {
-    msg(a, b) {
-      console.log("new:", a, "old:", b);
-      //   localStorage.setItem("msg", a);
+    // 'arti.msg'(a) {
+    //      this.arti.msg = a.slice(0, 140)
+    //         // console.log("new:", a)
+    //   //   localStorage.setItem("msg", a);
+    // },
+    arti:{
+      handler: function(a){
+        a.msg = a.msg.slice(0, 140)
+        a.tit = a.tit.slice(0, 10)
+      },
+      deep : true
     },
     msgs() {
       localStorage.setItem("msg", JSON.stringify(this.msgs));
@@ -79,7 +98,7 @@ export default {
   padding: 0 10px;
   resize: none;
   width: 100%;
-  height: .91rem /* 68/75 */;
+  height: 6em /* 68/75 */;
 }
 
 .article {
@@ -92,20 +111,42 @@ export default {
   text-align-last: justify;
 }
 
-/* .title-box{
+.title-box{
   background: white;
-  width: 100%;
-  box-sizing: border-box;
-  margin : 10px;
-  
-} */
+  margin: 16px 0;
+  border: #c2c2c2 solid 1px;
+  font-size: 12px;
+  color:#c2c2c2;
+}
 
 .title{
-  width: 100%;
-  margin: 16px 0;
+  width: 90%;
   padding: 3px 10px;
   border-radius: 8px;
-  border: #c2c2c2 solid 1px;
   box-sizing: border-box;
+  font-size: 16px;
+  color: black;
+}
+
+.article-box{
+  position: relative;
+  
+}
+
+.article-count{
+  padding-right: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  text-align:end;
+  font-size: 12px;
+  color: #c2c2c2;
+  position: absolute;
+  bottom: 0;
+  transform: translate(0, -100%);
+}
+
+.fobiden{
+  pointer-events: none;
+  opacity: 0.5;
 }
 </style>

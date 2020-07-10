@@ -81,7 +81,7 @@ const store = new Vuex.Store({
         likelist: []
       }
     ],
-    loginstate: 1,
+    loginstate: null,
   },
   mutations: {
     addlike(state, id) {
