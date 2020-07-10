@@ -77,6 +77,14 @@ export default {
       }
     }
   },
+  watch:{
+    "comm.pinglun.comm":{
+      handler:function(a){
+     this.comm.pinglun.comm = a.slice(0, 20)
+      // console.log(this.comm.pinglun.comm)
+    },
+    }
+  }
   // computed: {
   //   comments() {
   //     return this.list.comments
