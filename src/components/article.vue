@@ -53,7 +53,7 @@ export default {
     let myarticle = this.$store.state.list.find(item => item.id === id);
     console.log(myarticle);
     this.list = myarticle;
-    console.log(this.list);
+    console.log(this.$route,"路由");
   },
   methods: {
     add() {
