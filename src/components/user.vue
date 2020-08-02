@@ -15,7 +15,7 @@
 
         </div>
       <!-- <div v-html="note"></div> -->
-      <h3>我喜欢的</h3>
+      <!-- <span class="like">我喜欢的</span> -->
       <div class="article">
         <!-- <p v-for="item in list" :key="item.id">{{item.tit}}</p> -->
         <item v-for="item in list" :key="item.id" :info="item"></item>
@@ -112,7 +112,10 @@ export default {
 }
 
 .title-box{
+  display: flex;
+  line-height: 36px;
   background: white;
+  padding-right: 10px;
   margin: 16px 0;
   border: #c2c2c2 solid 1px;
   font-size: 12px;
@@ -121,7 +124,8 @@ export default {
 
 .title{
   width: 90%;
-  padding: 3px 10px;
+  flex: 1;
+  padding: 0 10px;
   border-radius: 8px;
   box-sizing: border-box;
   font-size: 16px;
@@ -149,4 +153,6 @@ export default {
   pointer-events: none;
   opacity: 0.5;
 }
+
+
 </style>

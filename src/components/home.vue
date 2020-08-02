@@ -1,13 +1,13 @@
 <template>
   <div class="home">
     <!-- <h1>首页</h1> -->
-    <ad class="ad"></ad>
+    <!-- <ad class="ad"></ad> -->
 
     <!-- <div class="col-md-2">
       <msvg class="msvg"></msvg>
     </div>-->
     <div class="article">
-      <div>
+      <div class="filter">
         <span @click="handhot" :class="{on: sortlist == 'hot'}">最热</span>
         <span @click="handnew" :class="{on: sortlist == 'new'}">最新</span>
       </div>
@@ -118,6 +118,17 @@ export default {
   border-bottom: 2px;
   border-bottom-color: red;
   border-bottom-style: solid;
+}
+.filter span{
+  display: inline-block;
+  /* width: 100%; */
+  background: white;
+  font-size: 16px;
+  margin: 10px 0;
+  padding: 0 /* 10/100 */.1rem /* 10/100 */;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.01);
+
+
 }
 @media screen and (max-width: 1000px) {
   .msvg {

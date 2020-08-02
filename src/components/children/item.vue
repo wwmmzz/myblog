@@ -59,15 +59,21 @@ export default {
 p {
   margin: 0;
   padding: 0;
+  color: #999;
   word-break: break-all;
 }
 .item {
   /* background-image: url("../../assets/001.jpg"); */
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.01);
 
-  /* padding: 0 10px; */
+
+  padding: 3px 5px;
   background-color: white;
   /* border-radius: 10px; */
   margin: .13rem /* 10/75 */ 0;
+}
+h4{
+  font-weight: bold;
 }
 .f-center {
   border-top-width: 0.5px;

@@ -113,14 +113,28 @@ export default {
   justify-content: center;
   align-items: center;
 }
+h5{
+  word-break: break-all;
+}
 .comment-i {
   display: flex;
-  width: 100vw;
+  width: 1000px;
   position: fixed;
   bottom: 0;
-  left: 0;
-  padding: 0 10px;
+  /* left: 0; */
+  padding: 3px 10px;
+  margin: 0 auto;
+  background: white;
+  box-sizing: border-box;
   border-top: #c2c2c2 solid 1px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.01);
+
+}
+@media screen and (max-width: 1000px) {
+  .comment-i{
+    width: 100%;
+    left: 0;
+  }
 }
 .comment-input{
     padding: 0 10px;

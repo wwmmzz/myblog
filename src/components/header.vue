@@ -1,13 +1,14 @@
 <template>
   <div>
-    <div class="row header">
-      <div class="col-xs-6 col-md-6">
+    <div class="header">
+      <div class="left">
         <router-link to="/home" tag="div">
         <!-- <span class="glyphicon glyphicon-home"></span> -->
           <span :class="{select: path == '/home'}" class="glyphicon glyphicon-home"></span>
         </router-link>
       </div>
-      <div class="col-xs-6 col-md-6 right">
+      <div class="headcenter"></div>
+      <div class="right">
         <router-link to="/user" tag="span" v-if="state">
         <!-- <span class="glyphicon glyphicon-user"></span> -->
           <span :class="{select: path == '/user'}" class="glyphicon glyphicon-user"></span>
@@ -62,12 +63,19 @@ export default {
   /* margin: 5px 15px; */
   /* width: 100%; */
   /* position: fixed; */
+  /* position: fixed; */
+  display: flex;
+  /* width: 1000px; */
   background-color: white;
   font-size: 30px;
+  padding: 0 10px;
+  box-sizing: border-box;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.01);
+
   /* z-index: 10; */
 }
-.right {
-  text-align: right;
+.headcenter{
+  flex: 1;
 }
 .select {
   /* border-bottom: 2px;
