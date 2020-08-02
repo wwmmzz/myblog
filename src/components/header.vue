@@ -59,7 +59,7 @@ export default {
 @import 'bootstrap';
 
 .header {
-  margin: 5px 15px;
+  /* margin: 5px 15px; */
   /* width: 100%; */
   /* position: fixed; */
   background-color: white;

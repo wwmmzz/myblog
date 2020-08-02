@@ -18,6 +18,11 @@ export default {
 <style>
 @import 'bootstrap';
 
+#app{
+  min-width: 375px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
 /* :root {
 	--font: "EB Garamond", serif;

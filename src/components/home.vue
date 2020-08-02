@@ -125,20 +125,16 @@ export default {
   }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1000px) {
   .home {
-    display: flex;
-    direction: rtl;
+    width: 1000px;
   }
-  .ad {
+  /* .ad {
     flex-grow: 1;
-    /* float: right; */
-    /* width: 30%; */
   }
   .article {
     direction: ltr;
     flex-grow: 3;
-    /* width: 60%; */
-  }
+  } */
 }
 </style>

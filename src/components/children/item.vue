@@ -90,17 +90,4 @@ p {
 .likecount{
     margin-left: 3px;
 }
-
-@media screen and (min-width : 900px){
-    .item{
-        float: left;
-        width: 30%;
-        margin: 1.5%;
-    }
-    .article{
-        height: 4em;
-        overflow: hidden;
-
-    }    
-}
 </style>

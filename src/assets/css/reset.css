@@ -3,7 +3,7 @@ body{margin:0;font-family: Arial, Helvetica, sans-serif;
     /* line-height:1.5; */
     line-height:1;
     box-sizing: border-box;
-    background: #f4f4f4;
+    background: #f4f4f4 !important;
     
 }
     /* 
